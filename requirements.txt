@@ -1,0 +1,9 @@
+numpy==1.26.4
+pandas
+scikit-learn
+matplotlib
+librosa
+soundfile
+torch==2.2.2+cpu
+torchaudio==2.2.2+cpu
+umap-learn
