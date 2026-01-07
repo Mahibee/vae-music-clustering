@@ -15,19 +15,21 @@
 - `results/` generated outputs
 
 ## Data Availability and Setup
+
 The audio files and song lyrics used in this project are not included in the repository due to
 copyright and storage limitations.
 
 To reproduce the experiments, organize your local dataset as follows:
 
+```text
 data/
 ├── audio/
-│ ├── english/
-│ │ └── song1.mp3
-│ └── bangla/
-│ └── song2.mp3
+│   ├── english/
+│   │   └── song1.mp3
+│   └── bangla/
+│       └── song2.mp3
 └── lyrics/
-└── song1.txt
+    └── song1.txt
 
 Audio clips should be approximately 20–30 seconds long.  
 Lyrics filenames must match the corresponding audio filenames.
