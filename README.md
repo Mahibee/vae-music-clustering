@@ -4,44 +4,44 @@
 - Extracts MFCC features from short audio clips
 - Trains a Variational Autoencoder (VAE) to learn latent representations
 - Performs K-Means clustering in the learned latent space
-- Compares clustering results with a PCA + K-Means baseline
-- Includes a lightweight lyrics-based experiment using TF-IDF + K-Means
-- Visualizes audio clusters using t-SNE
+- Compares results with a PCA + K-Means baseline
+- (Optional) Lyrics experiment using TF-IDF + K-Means (if lyrics are available)
+- Visualizes clusters using t-SNE (and PCA plot for baseline)
 
-## Folder Structure
-- `data/audio/` (not included in the repository)
-- `data/lyrics/` (not included in the repository)
-- `src/` source code
-- `results/` generated outputs
+## Repository structure
+- `src/` : source code
+- `run_pipeline.py` : main runner script
+- `results/` : generated figures (created after running)
+- `data/` : local dataset folder (not pushed to GitHub)
 
-## Data Availability and Setup
+## Data availability (not included in GitHub)
+Audio and lyrics are not included in this repository due to storage/copyright.
 
-The audio files and song lyrics used in this project are not included in the repository due to
-copyright and storage limitations.
-
-To reproduce the experiments, organize your local dataset as follows:
-
+Place files like:
 ```text
 data/
-├── audio/
-│   ├── english/
-│   │   └── song1.mp3
-│   └── bangla/
-│       └── song2.mp3
-└── lyrics/
-    └── song1.txt
+└── audio/
+    └── gtzan/
+        ├── blues/
+        ├── classical/
+        ├── country/
+        ├── disco/
+        ├── hiphop/
+        ├── jazz/
+        ├── metal/
+        ├── pop/
+        ├── reggae/
+        └── rock/
 
-Audio clips should be approximately 20–30 seconds long.  
-Lyrics filenames must match the corresponding audio filenames.
-
-Once the data is placed correctly, run the full pipeline using:
-```bash
-python run_pipeline.py
-
-## Setup (Windows)
+Setup (Windows):
 python -m venv venv
 venv\Scripts\activate
 pip install --upgrade pip
 pip install -r requirements.txt
+
+Run:
+python run_pipeline.py
+
+
 
 

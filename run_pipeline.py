@@ -34,7 +34,12 @@ def train_vae(model, data, epochs=50, lr=0.001):
 
 def main():
     print("Loading dataset...")
-    X, _ = build_dataset("data/audio")
+    X, y = build_dataset("data/audio/gtzan")
+    print("X type:", type(X))
+    print("X shape:", np.array(X).shape)
+    print("First element:", X[0] if len(X) > 0 else "EMPTY")
+
+
 
     print("Training VAE...")
     vae = VAE(input_dim=X.shape[1])
@@ -68,17 +73,17 @@ def main():
     visualize_pca(X, pca_labels, "results/pca_clusters.png")
 
     # -------- Lyrics Add-on (TF-IDF + KMeans) --------
-    print("Loading lyrics (TF-IDF)...")
-    lyrics_dir = os.path.join("data", "lyrics")
+    #print("Loading lyrics (TF-IDF)...")
+    #lyrics_dir = os.path.join("data", "lyrics")
 
-    lyric_paths, X_lyrics = build_lyrics_tfidf(lyrics_dir)
+    #lyric_paths, X_lyrics = build_lyrics_tfidf(lyrics_dir)
 
-    print("Lyrics clustering...")
-    lyric_labels = cluster_lyrics(X_lyrics, k=2)
+    #print("Lyrics clustering...")
+    #lyric_labels = cluster_lyrics(X_lyrics, k=2)
 
-    print("Evaluating lyrics clustering...")
-    lyric_scores = evaluate_clustering(X_lyrics, lyric_labels)
-    print("Lyrics metrics:", lyric_scores)
+    #print("Evaluating lyrics clustering...")
+    #lyric_scores = evaluate_clustering(X_lyrics, lyric_labels)
+    #print("Lyrics metrics:", lyric_scores)
 
     print("Done! Results saved in 'results/' folder.")
 
